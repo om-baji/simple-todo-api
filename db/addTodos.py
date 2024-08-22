@@ -1,11 +1,9 @@
 from pymongo import MongoClient
 
-# Connect to MongoDB
-client = MongoClient("mongodb://localhost:27017/")  # Replace with your MongoDB connection string if necessary
+client = MongoClient("mongodb://localhost:27017/") 
 db = client["todo_database"]
 collection = db["todos"]
 
-# Generate 100 unique and realistic to-dos with an id from 1 to 100
 todos = [
     {"id": i+1, "task": task}
     for i, task in enumerate([
@@ -114,12 +112,9 @@ todos = [
     ])
 ]
 
-# Insert to-dos into MongoDB
 result = collection.insert_many(todos)
 
-# Print out the inserted IDs
 print("Inserted todo IDs:", result.inserted_ids)
 
-# Optionally, you can fetch and print the inserted documents
 for todo in collection.find():
     print(todo)
