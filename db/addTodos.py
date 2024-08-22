@@ -1,0 +1,125 @@
+from pymongo import MongoClient
+
+# Connect to MongoDB
+client = MongoClient("mongodb://localhost:27017/")  # Replace with your MongoDB connection string if necessary
+db = client["todo_database"]
+collection = db["todos"]
+
+# Generate 100 unique and realistic to-dos with an id from 1 to 100
+todos = [
+    {"id": i+1, "task": task}
+    for i, task in enumerate([
+        "Buy groceries",
+        "Finish project report",
+        "Book doctor appointment",
+        "Call mom",
+        "Pay electricity bill",
+        "Clean the house",
+        "Exercise for 30 minutes",
+        "Read a book",
+        "Plan the weekend trip",
+        "Water the plants",
+        "Send an email to John",
+        "Update resume",
+        "Prepare for the meeting",
+        "Organize the workspace",
+        "Check bank statements",
+        "Buy a birthday gift for Sarah",
+        "Learn Python basics",
+        "Fix the leaking faucet",
+        "Grocery shopping",
+        "Schedule a car service",
+        "Renew the gym membership",
+        "Write a blog post",
+        "Plan weekly meals",
+        "Backup important files",
+        "Watch a documentary",
+        "Research investment options",
+        "Visit the dentist",
+        "Mow the lawn",
+        "Take the dog for a walk",
+        "Organize the photo album",
+        "Plan a family dinner",
+        "Declutter the garage",
+        "Respond to messages",
+        "Update the website",
+        "Attend a networking event",
+        "Order office supplies",
+        "Schedule a haircut",
+        "Clean out the fridge",
+        "Plan next month's budget",
+        "Attend yoga class",
+        "Install software updates",
+        "Review quarterly goals",
+        "Prepare a presentation",
+        "Get a car wash",
+        "Update social media profiles",
+        "Buy a new book",
+        "Plan a surprise for a friend",
+        "Test the smoke detectors",
+        "Renew the insurance policy",
+        "Clean the windows",
+        "Make a dentist appointment",
+        "Prepare tax documents",
+        "Review investment portfolio",
+        "Visit a museum",
+        "Plan a picnic",
+        "Send a thank you note",
+        "Check the tire pressure",
+        "Clean the gutters",
+        "Buy concert tickets",
+        "Organize a charity event",
+        "Plan a weekend getaway",
+        "Take a photography course",
+        "Start a new hobby",
+        "Write a letter",
+        "Volunteer at a local shelter",
+        "Cook a new recipe",
+        "Read the news",
+        "Plan a movie night",
+        "Attend a workshop",
+        "Meditate for 10 minutes",
+        "Set up a savings plan",
+        "Repair the kitchen sink",
+        "Organize digital files",
+        "Try a new restaurant",
+        "Buy a houseplant",
+        "Watch a sunset",
+        "Write a short story",
+        "Send a care package",
+        "Join a fitness class",
+        "Explore a new city",
+        "Organize a game night",
+        "Bake cookies",
+        "Learn a new language",
+        "Donate old clothes",
+        "Attend a live concert",
+        "Set up automatic bill payments",
+        "Update emergency contacts",
+        "Try a new hobby",
+        "Take a day off",
+        "Clean the kitchen",
+        "Organize the bookshelf",
+        "Go for a hike",
+        "Review insurance coverage",
+        "Plan a study schedule",
+        "Buy new running shoes",
+        "Check smoke alarms",
+        "Clean the car interior",
+        "Plant a tree",
+        "Watch a play",
+        "Organize a family reunion",
+        "Complete an online course",
+        "Review personal goals"
+    ])
+]
+
+# Insert to-dos into MongoDB
+result = collection.insert_many(todos)
+
+# Print out the inserted IDs
+print("Inserted todo IDs:", result.inserted_ids)
+
+# Optionally, you can fetch and print the inserted documents
+for todo in collection.find():
+    print(todo)
