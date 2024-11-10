@@ -2,6 +2,12 @@
 
 Welcome to the **Simple Todo API**! This API generates random todo items with unique IDs and user IDs. Perfect for testing or integrating into your applications.
 
+## Base URL
+
+The API is hosted on a serverless platform and can be accessed at:
+
+[https://api.ombaji124-d31.workers.dev/](https://api.ombaji124-d31.workers.dev/)
+
 ## Available Endpoints
 
 ### `GET /todos`
@@ -27,3 +33,6 @@ This will return 10 random todo items.
 Happy Coding! 🚀
 
 ```
+
+
+
