@@ -19,8 +19,8 @@ This will return 10 random todo items.
 
 ## Powered By
 
-- **Google Generative AI**
-- **Hono**
+- Google Generative AI
+- Hono
 
 ---
 
